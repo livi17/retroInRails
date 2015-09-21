@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	before_action :correct_user,   only: [:edit, :update]
 
 	def index
+		#variable containinbg all the sites users.
 		@users = User.all
   	end
 
