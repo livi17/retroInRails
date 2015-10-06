@@ -15,7 +15,6 @@ class CreateEvents < ActiveRecord::Migration
       t.decimal :your_lon, :precision=>10, :scale=>6
       t.text :content
       t.references :user, index: true, foreign_key: true
-      t.references :group, index: true, foreign_key: true
 
       t.timestamps null: false
     end
