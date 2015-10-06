@@ -25,3 +25,22 @@ User.create!(name:  "Example User",
               activated: true,
               activated_at: Time.zone.now)
 end
+
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.microposts.create!(content: content) }
+end
+
+users = User.order(:created_at).take(6)
+50.times do 
+  content = Faker::Lorem.paragraph(4, true, 4)
+  title = Faker::Book.title
+  start_date = Faker::Date.backward(1000)
+  end_date = Faker::Date.backward(993)
+  event_location = Faker::Address.street_address
+  event_lat = Faker::Address.latitude
+  event_long = Faker::Address.longitude
+  users.each { |user| user.events.create!(content: content, title: title, event_location: event_location, start_date: start_date, end_date: end_date) }
+end

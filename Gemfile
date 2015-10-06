@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '4.2.2'
+gem 'geocoder'
 gem 'bcrypt-ruby'
-gem 'faker',        '1.4.2'
+gem 'faker', '~> 1.5.0'
+gem 'carrierwave',  '0.10.0'
+gem 'mini_magick',  '3.8.0'
+gem 'fog',          '1.26.0'
 gem 'will_paginate','3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass','3.2.0.0'

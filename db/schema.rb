@@ -11,13 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150922234636) do
+ActiveRecord::Schema.define(version: 20151006013215) do
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.string   "event_location"
+    t.decimal  "event_lat",      precision: 10, scale: 6
+    t.decimal  "event_lon",      precision: 10, scale: 6
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "location_based"
+    t.boolean  "present"
+    t.boolean  "single_day"
+    t.string   "your_location"
+    t.decimal  "your_lat",       precision: 10, scale: 6
+    t.decimal  "your_lon",       precision: 10, scale: 6
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "picture"
+  end
+
+  add_index "events", ["group_id"], name: "index_events_on_group_id"
+  add_index "events", ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
+
+  create_table "microposts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin",             default: false
