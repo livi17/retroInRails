@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :locations
+  resources :locations
   # get 'password_resets/new'
   # get 'password_resets/edit'
   # get 'sessions/new'
