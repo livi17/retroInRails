@@ -3,7 +3,13 @@
   <span class="user"><b><%= event.title %></b></span>
   <span class="content"><span style="color:#999999;" class="glyphicon glyphicon-globe" aria-hidden="true"></span> <%= event.event_location %></span>
   <span class="content"><span style="color:#999999;" class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
-  <%= event.start_date.try(:strftime, '%B %e, %Y') %>  | <%= event.end_date.try(:strftime, '%B %e, %Y') %></span>
+  <%= event.start_date.try(:strftime, '%B %e, %Y') %> 
+
+    <% if event.start_date != event.end_date %>  
+      - <%= event.end_date.try(:strftime, '%B %e, %Y') %>
+    <% end %>
+  </span>
+
   <span class="content"><%= event.content %>
   <%= image_tag event.picture.url if event.picture? %>
 </span>

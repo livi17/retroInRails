@@ -11,6 +11,17 @@ $( document ).ready(function() {
 
 	var eventSubmit = $('#new_event');
 
+	if( $(singleDay).prop('checked') ){
+			//multi-day event
+			$(endDate).show("slow" );
+			multiDaySelect = true;
+		} else {
+			//single day event
+			$(endDate).hide("slow" );
+			multiDaySelect = false;
+		}
+			
+
 	$( singleDay ).click(function() {
 		if( $(singleDay).prop('checked') ){
 			//multi-day event
