@@ -1,31 +1,36 @@
 <%= form_for(@event, html: { multipart: true }) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_field :title, placeholder: "Event title..." %>
-  </div>
-   <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.datetime_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.datetime_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Record new event..." %>
-  </div>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
-  <%= f.submit "Post", class: "btn btn-primary" %>
-  
+<%= render 'shared/error_messages', object: f.object %>
+<div class="field">
+  <%= f.text_field :title, placeholder: "Event title..." %>
+</div>
+<div class="checkbox">
+  <label>
+    <%= f.check_box :single_day %> Is this a multi-day event?
+  </label>
+</div>
+<div class="field">
+  <%= f.label :start_date %><br />
+  <%= f.date_select :start_date, :start_year => Date.current.year, :end_year => 1900  %>
+</div>
+<div id="end_date_div" class="field">
+  <%= f.label :end_date %><br />
+  <%= f.date_select :end_date, :start_year => Date.current.year, :end_year => 1900  %>
+</div>
+<div class="field">
+  <%= f.text_area :content, placeholder: "Record new event..." %>
+</div>
+<span class="picture">
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+</span>
+<%= f.submit "Post", class: "btn btn-primary", :id=>"event_submit" %>
+
 <% end %>
 
 <script type="text/javascript">
-  $('#event_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-      alert('Maximum file size is 5MB. Please choose a smaller file.');
-    }
-  });
+$('#event_picture').bind('change', function() {
+  var size_in_megabytes = this.files[0].size/1024/1024;
+  if (size_in_megabytes > 5) {
+    alert('Maximum file size is 5MB. Please choose a smaller file.');
+  }
+});
 </script>

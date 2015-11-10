@@ -253,3 +253,17 @@ span.picture {
     border: 0;
   }
 }
+
+#event_start_date_1i,
+#event_start_date_2i,
+#event_start_date_3i,
+#event_end_date_1i,
+#event_end_date_2i,
+#event_end_date_3i{
+  width: inherit;
+}
+
+#end_date_div{
+  display:none;
+}
+
