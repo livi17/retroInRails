@@ -267,3 +267,14 @@ span.picture {
   display:none;
 }
 
+.field_with_errors > #event_end_date_1i, 
+.field_with_errors > #event_end_date_2i, 
+.field_with_errors > #event_end_date_3i {
+  width:auto;
+  margin-right: 3px; 
+}
+
+
+#event_latitude, #event_longitude{
+  display:none;
+}

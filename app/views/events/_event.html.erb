@@ -1,7 +1,7 @@
 <li id="event-<%= event.id %>">
   <%= link_to gravatar_for(event.user, size: 50), event.user %>
   <span class="user"><b><%= event.title %></b></span>
-  <span class="content"><span style="color:#999999;" class="glyphicon glyphicon-globe" aria-hidden="true"></span> <%= event.event_location %></span>
+  <span class="content"><span style="color:#999999;" class="glyphicon glyphicon-globe" aria-hidden="true"></span> <%= event.address %></span>
   <span class="content"><span style="color:#999999;" class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
   <%= event.start_date.try(:strftime, '%B %e, %Y') %> 
 

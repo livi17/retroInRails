@@ -13,14 +13,14 @@ $( document ).ready(function() {
 
 	if( $(singleDay).prop('checked') ){
 			//multi-day event
-			$(endDate).show("slow" );
+			$(endDate).show("fast" );
 			multiDaySelect = true;
 		} else {
 			//single day event
-			$(endDate).hide("slow" );
+			$(endDate).hide("fast" );
 			multiDaySelect = false;
 		}
-			
+
 
 	$( singleDay ).click(function() {
 		if( $(singleDay).prop('checked') ){
@@ -38,7 +38,9 @@ $( document ).ready(function() {
 	$( eventSubmit ).submit(function(e) {
 		e.preventDefault();//prevent default submit functionality
 
-		if( !$( singleDay ).prop('checked') ){
+		if( !$( singleDay ).prop('checked') ){ 
+
+			//if NOT checked it is a single day
 			startYear =  $('#event_start_date_1i').val();
 			startMonth = $('#event_start_date_2i').val();
 			startDay =   $('#event_start_date_3i').val();
@@ -47,6 +49,9 @@ $( document ).ready(function() {
 			$("#event_end_date_1i").val(startYear);
 			$("#event_end_date_2i").val(startMonth);
 			$("#event_end_date_3i").val(startDay);
+		} else {
+			// if it is checked it is a multiday... make sure the end_date is later than the start_date
+
 		}
 		this.submit();
 	});
