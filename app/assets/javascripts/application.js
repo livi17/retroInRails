@@ -17,4 +17,3 @@
 //= require turbolinks
 //= require events
 //= require_tree .
-
