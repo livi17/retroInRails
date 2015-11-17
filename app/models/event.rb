@@ -1,5 +1,4 @@
 class Event < ActiveRecord::Base
-  #attr_accessible :event_location, :event_lat, :event_lon
   # No mass assignment allowed for Rails 4.1
 
   geocoded_by :address
@@ -15,21 +14,17 @@ class Event < ActiveRecord::Base
   validate  :end_date_after_start_date?
   validate  :picture_size
 
-  def end_date_after_start_date?
-    if end_date < start_date
-      errors.add :end_date, "must be after start date"
-    end
-  end
-
   private
 
-  def location_params
-    params.require(:address).permit(:latitude, :longitude)
-  end
+    def location_params
+      params.require(:address).permit(:latitude, :longitude)
+    end
 
     def end_date_after_start_date?
-      if end_date < start_date
-        errors.add :end_date, "must be after start date"
+      if single_day == "f"
+        if end_date < start_date
+          errors.add(:end_date, "must be after start date")
+        end
       end
     end
   

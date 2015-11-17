@@ -12,13 +12,14 @@ def setup
     assert_select 'div.pagination'
     # Invalid submission
     assert_no_difference 'Event.count' do
-      post events_path, event: { content: "" }
+      post events_path, event: { content: "", title: "" }
     end
     assert_select 'div#error_explanation'
     # Valid submission
+    title = "This is a title"
     content = "This event really ties the room together"
     assert_difference 'Event.count', 1 do
-      post events_path, event: { content: content }
+      post events_path, event: { content: content, title: title }
     end
     assert_redirected_to root_url
     follow_redirect!
@@ -33,5 +34,4 @@ def setup
     get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 0
   end
-
 end

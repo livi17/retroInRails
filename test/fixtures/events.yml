@@ -1,46 +1,91 @@
 orange:
+  title: "this is a title"
   content: "I just ate an orange!"
   created_at: <%= 10.minutes.ago %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   user: michael
 
 tau_manifesto:
+  title: "this is a title"
   content: "Check out the @tauday site by @mhartl: http://tauday.com"
   created_at: <%= 3.years.ago %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   user: michael
 
 cat_video:
+  title: "this is a title"
   content: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
   created_at: <%= 2.hours.ago %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   user: michael
 
 most_recent:
+  title: "this is a title"
   content: "Writing a short test"
   created_at: <%= Time.zone.now %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   user: michael
 
 <% 30.times do |n| %>
 event_<%= n %>:
+  title: "this is a title"
   content: <%= Faker::Lorem.sentence(5) %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   created_at: <%= 42.days.ago %>
   user: michael
 <% end %>
 
 ants:
+  title: "this is a title"
   content: "Oh, is that what you want? Because that's how you get ants!"
   created_at: <%= 2.years.ago %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   user: archer
 
 zone:
+  title: "this is a title"
   content: "Danger zone!"
   created_at: <%= 3.days.ago %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   user: archer
 
 tone:
+  title: "this is a title"
   content: "I'm sorry. Your words made sense, but your sarcastic tone did not."
   created_at: <%= 10.minutes.ago %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   user: lana
 
 van:
+  title: "this is a title"
   content: "Dude, this van's, like, rolling probable cause."
   created_at: <%= 4.hours.ago %>
+  address: "163 woods road"
+  single_day: 0
+  start_date: 2013-09-23
+  end_date: 2013-09-23  
   user: lana

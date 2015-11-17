@@ -15,26 +15,18 @@ ActiveRecord::Schema.define(version: 20151008031708) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
-    t.string   "event_location"
-    t.float    "event_lat"
-    t.float    "event_lon"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "location_based"
-    t.boolean  "present"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.date     "start_date"
+    t.date     "end_date"
     t.boolean  "single_day"
-    t.string   "your_location"
-    t.float    "your_lat"
-    t.float    "your_lon"
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "group_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "events", ["group_id"], name: "index_events_on_group_id"
   add_index "events", ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
   add_index "events", ["user_id"], name: "index_events_on_user_id"
 

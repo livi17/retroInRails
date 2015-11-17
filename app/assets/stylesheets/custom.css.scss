@@ -130,7 +130,7 @@ aside {
       padding-top: 0;
     }
     span {
-      display: block;
+      /*display: block;*/
       margin-bottom: 3px;
       line-height: 1;
     }
@@ -154,7 +154,9 @@ aside {
 }
 
 /* forms */
-
+.cbx-container{
+  z-index: 500;
+}
 
 #error_explanation {
   color: red;
@@ -172,10 +174,10 @@ aside {
 }
 
 .checkbox {
-  margin-top: -10px;
+  /*margin-top: -10px;*/
   margin-bottom: 10px;
   span {
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     font-weight: normal;
   }
 }
@@ -251,6 +253,7 @@ span.picture {
 #event_end_date_2i,
 #event_end_date_3i{
   width: inherit;
+  display: inline;
 }
 
 #end_date_div{

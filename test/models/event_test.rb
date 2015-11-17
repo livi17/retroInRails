@@ -2,10 +2,8 @@ require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
   def setup
-    @user = users(:michael)
-    # This code is not idiomatically correct.
-    @event = Event.new(content: "Lorem ipsum", user_id: @user.id)
-    @event = @user.events.build(content: "Lorem ipsum")
+    @user = users(:michael)  
+    @event = @user.events.build(content: "Lorem ipsum", title: "this is a title")
   end
 
   test "should be valid" do

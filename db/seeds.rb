@@ -37,10 +37,19 @@ users = User.order(:created_at).take(6)
 50.times do 
   content = Faker::Lorem.paragraph(4, true, 4)
   title = Faker::Book.title
-  start_date = Faker::Date.backward(1000)
-  end_date = Faker::Date.backward(993)
-  event_location = Faker::Address.street_address
-  event_lat = Faker::Address.latitude
-  event_long = Faker::Address.longitude
-  users.each { |user| user.events.create!(content: content, title: title, event_location: event_location, start_date: start_date, end_date: end_date) }
+  single_day = 0
+  start_date = "2013-09-23"
+  end_date = "2013-09-23"
+  address = Faker::Address.street_address
+  latitude = Faker::Address.latitude
+  longitude = Faker::Address.longitude
+  users.each { |user| user.events.create!(
+    content: content, 
+    title: title, 
+    address: address,
+    latitude: latitude,
+    longitude: longitude,
+    single_day:  single_day,
+    start_date: start_date, 
+    end_date: end_date) }
 end
