@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   resources :locations
-  # get 'password_resets/new'
-  # get 'password_resets/edit'
-  # get 'sessions/new'
-  # get 'users/new'
-
   root                'static_pages#home'
   get 'help'       => 'static_pages#help'
   get 'about'      => 'static_pages#about'
