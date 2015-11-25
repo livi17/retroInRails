@@ -90,7 +90,8 @@ has_many :active_groups, class_name: "Groups_Relationship",
   # Defines a proto-feed.
   # See "Following users" for the full implementation.
   def feed
-    Event.where("user_id = ?", id)
+    #Event.where("user_id = ?", id)
+    Event.where("user_id IN (?) OR user_id = ?", following_ids, id)
   end
 
   # Follows a user.
