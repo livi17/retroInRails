@@ -12,6 +12,17 @@
       </section>
     </aside>
     <div class="col-md-8">
+      <strong>Total Posts in the database:</strong>
+      <%= total_events %><br> 
+      <strong>Posts created this year</strong>
+      <%= total_events_this_year %><br> 
+      <strong>Posts created this month</strong>
+      <%= total_events_this_month %><br>
+      <strong>Posts created this week</strong>
+      <%= total_events_this_week %><br>
+      <strong>Posts created today</strong>
+      <%= total_events_today %><br>   
+
       <h3>Event Feed</h3>
       <%= render 'shared/feed' %>
     </div>

@@ -87,11 +87,14 @@ has_many :active_groups, class_name: "Groups_Relationship",
     reset_sent_at < 2.hours.ago
   end
 
-  # Defines a proto-feed.
+  # Defines a status-feed.
   # See "Following users" for the full implementation.
   def feed
     #Event.where("user_id = ?", id)
-    Event.where("user_id IN (?) OR user_id = ?", following_ids, id)
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    Event.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
   end
 
   # Follows a user.
