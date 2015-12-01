@@ -56,35 +56,4 @@ $( document ).ready(function() {
 		this.submit();
 	});
 
-	//image upload with preview
-	$("#event_picture").fileinput({
-        previewFileType: "image",
-        browseClass: "btn btn-success",
-        browseLabel: "Pick Image",
-        browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
-        removeClass: "btn btn-danger",
-        removeLabel: "Delete",
-        removeIcon: "<i class=\"glyphicon glyphicon-trash\"></i> ",
-        uploadClass: "btn btn-info",
-        uploadLabel: "Upload",
-        uploadIcon: "<i class=\"glyphicon glyphicon-upload\"></i> ",
-        showCaption: true,
-        showRemove: false,
-        showUpload: false
-    });
-
-
-    $( "#event_start_date_1i" ).addClass( "form-control input-sm" );
-    $( "#event_start_date_2i" ).addClass( "form-control input-sm" );
-    $( "#event_start_date_3i" ).addClass( "form-control input-sm" );
-    $( "#event_end_date_1i" ).addClass( "form-control input-sm" );
-    $( "#event_end_date_2i" ).addClass( "form-control input-sm" );
-    $( "#event_end_date_3i" ).addClass( "form-control input-sm" );
-
-
-
 });//end of document.ready
-
-$(function() {
-	$("#event_address").geocomplete();
-});  

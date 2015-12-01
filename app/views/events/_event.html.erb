@@ -1,23 +1,31 @@
 <li id="event-<%= event.id %>">
-  <%= link_to gravatar_for(event.user, size: 50), event.user %>
-  <span class="user"><b><%= event.title %></b></span>
-  <span class="content"><span style="color:#999999;" class="glyphicon glyphicon-globe" aria-hidden="true"></span> <%= event.address %></span>
-  <span class="content"><span style="color:#999999;" class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
-  <%= event.start_date.try(:strftime, '%B %e, %Y') %> 
 
-    <% if event.start_date != event.end_date %>  
-      - <%= event.end_date.try(:strftime, '%B %e, %Y') %>
-    <% end %>
-  </span>
+  <% if event.picture? %>
+  <div class="feed_main_image" style="background:url(<%= event.picture.url %>);"></div>
+  <% else %>
+  <%= image_tag("no-image.png", size: "80x80", :class=>"feed_main_image") %>
+  <% end %>
 
-  <span class="content"><%= event.content %>
-  <%= image_tag event.picture.url if event.picture? %>
-</span>
-  <span class="timestamp">
-    Created by <%= link_to event.user.name, event.user %> <%= time_ago_in_words(event.created_at) %> ago.
-    <% if current_user?(event.user) %>
-      <%= link_to "delete", event, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
+  <div class="title"><b><%= link_to event.title, event_url(event) %></b></div>
+  <div class="address"><span style="color:#999999;" class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+  <%=event.address %>
+</div>
+<div class="date"><span style="color:#999999;" class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+  <%=event.start_date.try(:strftime, '%B %e, %Y') %>
+  <% if event.start_date != event.end_date %>
+  -
+  <%=event.end_date.try(:strftime, '%B %e, %Y') %>
+  <% end %>
+</div>
+
+<div class="content">
+  <%= truncate(event.content, :length=> 200) %>
+</div>
+<div class="timestamp">
+  Created by <%= link_to gravatar_for(event.user, size: 20), event.user %> <%= link_to event.user.name, event.user %> <%= time_ago_in_words(event.created_at) %> ago.
+  <% if current_user?(event.user) %>
+  <%= link_to "delete", event, method: :delete,
+  data: { confirm: "You sure?" } %>
+  <% end %>
+</div>
 </li>

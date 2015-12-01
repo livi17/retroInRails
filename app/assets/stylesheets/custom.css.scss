@@ -145,8 +145,8 @@ aside {
 }
 
 .gravatar {
-  float: left;
-  margin-right: 10px;
+  /*float: left;
+  margin-right: 10px;*/
 }
 
 .gravatar_edit {
@@ -250,9 +250,9 @@ aside {
     margin-top: 5em;
     padding-top: 0;
   }
-  .content {
+  .content, .title, .date, .address {
     display: block;
-    margin-left: 60px;
+    margin-left: 15px;
     img {
       display: block;
       padding: 5px 0;
@@ -261,12 +261,18 @@ aside {
   .timestamp {
     color: #999999;
     display: block;
-    margin-left: 60px;
+    margin-left: 15px;
+  }
+  .date, .content{
+    margin-bottom: 6px;
+  }
+  .title{
+    text-transform: uppercase;
   }
   .gravatar {
-    float: left;
+    /*float: left;
     margin-right: 10px;
-    margin-top: 5px;
+    margin-top: 5px;*/
   }
 }
 
@@ -308,4 +314,26 @@ span.picture {
 
 #event_latitude, #event_longitude{
   display:none;
+}
+body > div.container > div > div > ol > li{
+  clear:both;
+}
+.feed_main_image{
+  height: 80px;
+  width: 80px;
+  max-width: 80px;
+  max-height: 80px;
+  float: right;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  border: 1px solid #E3E3E3;
+}
+.main_image{
+  max-width: 300px;
+  max-height: 300px;
 }
