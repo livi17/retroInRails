@@ -3,11 +3,20 @@
     The <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
     by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
   </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
-    </ul>
+
+  <nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+    
+        <%= form_tag events_path, :class => "navbar-form navbar-left", role: "form", :method => 'get', :id => "events_search" do %>
+
+        <%= text_field_tag :search, params[:search], :class => "form-control input-sm", placeholder: "Keyword search" %>
+          <!-- %= date_select :start_date_search, :start_date_search => Date.current.year, :end_year => 1900 % -->  
+          <!-- %= date_select :start_date_search, :start_date_search => Date.current.year, :end_year => 1900 % -->
+        
+       
+        <%= submit_tag "Search", :name => nil, :class => "btn btn-success btn-sm" %>
+      <% end %>
+
+    </div>
   </nav>
 </footer>

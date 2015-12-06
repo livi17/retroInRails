@@ -14,6 +14,14 @@ class Event < ActiveRecord::Base
   validate  :end_date_after_start_date?
   validate  :picture_size
 
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+
   private
 
     def location_params
